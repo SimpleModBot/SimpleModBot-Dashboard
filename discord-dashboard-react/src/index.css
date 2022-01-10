@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+
+body {
+  margin: 0;
+  color: whitesmoke;
+  background-color: #2a3344;
+  height: 100%;
+  font-family: "PT Sans", sans-serif;
+}
+
+html,
+#root {
+  height: 100%;
+}

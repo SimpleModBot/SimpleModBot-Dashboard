@@ -1,0 +1,8 @@
+.a {
+    text-decoration: none;
+}
+  
+.a:hover {
+    color: #ffffff;
+    transition-duration: 250ms;
+}
