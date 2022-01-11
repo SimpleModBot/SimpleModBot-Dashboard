@@ -19,7 +19,7 @@ export function Menu() {
                 <h2 style={{ fontWeight: 300 }}>Select a Guild to edit.</h2>
                 <div>
                     {mockGuilds.map((guild) => (
-                        <div onClick={() => handleClick(guild.id)}>
+                        <div key={guild.id} onClick={() => handleClick(guild.id)}>
                             <GuildItem guild={guild} />
                         </div>
                     ))}

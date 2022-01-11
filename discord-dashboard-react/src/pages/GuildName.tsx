@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GuildContext } from '../utils/ctx/GuildContext';
 import { Button, Container, Flex, InputField, Title } from '../utils/styles';
 
-export function GuildPrefix() {
+export function GuildName() {
 	const { guildID } = useContext(GuildContext);
 
 	if (!guildID || guildID == '' || guildID.length < 1) {
@@ -16,24 +16,24 @@ export function GuildPrefix() {
     const navigate = useNavigate();
     const handleClick = (val?: string) => {
         // @ts-expect-error
-        const v = val || document.getElementById('newprefix').value;
+        const v = val || document.getElementById('newname').value;
         navigate({
             pathname: `/guild/categories`,
-            search: `?prefix=${v.replace(/ /g, '')}`,
+            search: `?name=${v.replace(/ /g, '')}`,
         });
     };
 
     return (
         <div style={{ padding: '35px', }}>
             <Container style={{ width: '800px', }}>
-                <Title>Update the command prefix</Title>
+                <Title>Change the bot nickname</Title>
                 <form>
                     <div>
-                        <label htmlFor='prefix' style={{ fontSize: '20px' }}>
-                            Current prefix
+                        <label htmlFor='name' style={{ fontSize: '20px' }}>
+                            Current nickname
                         </label>
                     </div>
-                    <InputField id='newprefix' style={{ margin: '10px 0px' }} />
+                    <InputField id='newname' style={{ margin: '10px 0px' }} />
                     <Flex justifyContent='flex-end'>
                         <Button variant='secondary' type='button' style={{
                             margin: '0px 8px',

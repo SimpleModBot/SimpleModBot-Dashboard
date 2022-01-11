@@ -6,6 +6,7 @@ import { GuildPrefix } from './pages/GuildPrefix';
 import { Home } from './pages/Home';
 import { Menu } from './pages/Menu';
 import { Appbar } from './components/Appbar';
+import { GuildName } from './pages/GuildName';
 
 function App() {
 	const [guildID, setGuildID] = useState('');
@@ -23,6 +24,7 @@ function App() {
 				<Route path='/menu' element={<Menu />} />
 				<Route path='/guild/categories' element={<Category />} />
 				<Route path='/guild/prefix' element={<GuildPrefix />} />
+				<Route path='/guild/name' element={<GuildName />} />
 			</Routes>
 		</GuildContext.Provider>
 	);

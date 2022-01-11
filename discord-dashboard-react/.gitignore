@@ -9,6 +9,7 @@ __mocks__
 
 # production
 /build
+/src/utils/secrets
 
 # misc
 .DS_Store
