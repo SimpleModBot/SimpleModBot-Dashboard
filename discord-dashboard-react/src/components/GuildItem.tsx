@@ -11,7 +11,7 @@ type Props = {
 
 export const GuildItem = ({ guild }: Props) => (
     <GuildItemStyle>
-        <img className='image' src={guild.icon} alt={guild.name} />
+        <img className='image' src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.webp?size=128`} alt={guild.name} />
         <p style={{ fontSize: '20px', }}>{guild.name}</p>
     </GuildItemStyle>
 );

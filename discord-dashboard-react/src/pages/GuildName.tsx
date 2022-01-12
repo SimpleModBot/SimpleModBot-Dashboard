@@ -1,10 +1,8 @@
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GuildContext } from '../utils/ctx/GuildContext';
 import { Button, Container, Flex, InputField, Title } from '../utils/styles';
 
 export function GuildName() {
-	const { guildID } = useContext(GuildContext);
+	const guildID  = localStorage.getItem('guild-id');
 
 	if (!guildID || guildID == '' || guildID.length < 1) {
 		console.log('guildID is not set');

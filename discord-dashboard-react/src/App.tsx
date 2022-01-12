@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { GuildContext } from './utils/ctx/GuildContext';
 import { Category } from './pages/Category';
 import { GuildPrefix } from './pages/GuildPrefix';
 import { Home } from './pages/Home';
 import { Menu } from './pages/Menu';
 import { Appbar } from './components/Appbar';
 import { GuildName } from './pages/GuildName';
+import { GuildContext } from './utils/ctx/GuildContext';
 
 function App() {
 	const [guildID, setGuildID] = useState('');

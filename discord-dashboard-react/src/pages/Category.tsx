@@ -2,11 +2,9 @@ import { CategoryContainer, Container, Flex, Grid, TextButton, Title } from '../
 import { IoSettingsOutline } from 'react-icons/io5';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { GuildContext } from '../utils/ctx/GuildContext';
-import { useContext } from 'react';
 
 export function Category() {
-	const { guildID } = useContext(GuildContext);
+	const guildID = localStorage.getItem('guild-id');
 
 	if (!guildID || guildID == '' || guildID.length < 1) {
 		console.log('guildID is not set');

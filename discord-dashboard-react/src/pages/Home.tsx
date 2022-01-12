@@ -3,39 +3,54 @@ import { HomeButton } from '../utils/styles/index';
 import '../utils/css/home.css';
 
 export function Home() {
-	function generateRandomString() {
-		let randomString = '';
-		const randomNumber = Math.floor(Math.random() * 10);
-
-		for (let i = 0; i < 20 + randomNumber; i++) {
-			randomString += String.fromCharCode(33 + Math.floor(Math.random() * 94));
-		}
-
-		return randomString;
-	}
-
 	window.onload = () => {
 		const fragment = new URLSearchParams(window.location.hash.slice(1));
 		const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+		localStorage.removeItem('guild-id');
 
-		if (!accessToken) return;
+		if (accessToken && tokenType) {
+			localStorage.setItem('oauth-state', 'success');
+			localStorage.setItem('access-token', accessToken);
+			localStorage.setItem('token-type', tokenType);
+		}
+		if (!accessToken && !tokenType) {
+			if (localStorage.getItem('oauth-state') === 'success') {
+				const token = localStorage.getItem('access-token');
+				const type = localStorage.getItem('token-type');
 
-		fetch('https://discord.com/api/users/@me', {
-			headers: {
-				authorization: `${tokenType} ${accessToken}`,
-			},
-		})
-			.then((result) => result.json())
-			.then((response) => {
-				const { username, discriminator } = response;
-				// @ts-expect-error
-				document.getElementById('info').innerText = `Welcome ${username}#${discriminator}!`;
-			})
-			.catch(console.error);
+				if (token && type) {
+					window.location.hash = `#access_token=${token}&token_type=${type}`;
+					window.location.reload();
+				} else {
+					localStorage.setItem('oauth-state', 'error');
+					localStorage.removeItem('access-token');
+					localStorage.removeItem('token-type');
+					return;
+				}
+			} else {
+				localStorage.setItem('oauth-state', 'error');
+				localStorage.removeItem('access-token');
+				localStorage.removeItem('token-type');
+				return;
+			}
+		}
+		const oauthState = localStorage.getItem('oauth-state');
 
-		if (!accessToken) {
-			const randomString = generateRandomString();
-			localStorage.setItem('oauth-state', randomString);
+		if (oauthState === 'success') {
+			window.location.href = '/menu';
+
+			// fetch('https://discord.com/api/users/@me', {
+			// 	headers: {
+			// 		authorization: `${tokenType} ${accessToken}`,
+			// 	},
+			// })
+			// 	.then((result) => result.json())
+			// 	.then((response) => {
+			// 		const { username, discriminator } = response;
+			// 		// @ts-expect-error
+			// 		document.getElementById('info').innerText = `Welcome ${username}#${discriminator}!\nPlease don't execute anything in the console.`;
+			// 	})
+			// 	.catch(console.error);
 		}
 	};
 
