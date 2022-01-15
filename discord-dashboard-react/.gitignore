@@ -1,15 +1,15 @@
 # dependencies
-/node_modules
-/.pnp
+node_modules
+.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage
 __mocks__
 
 # production
-/build
-/src/utils/secrets
+build
+src/utils/secrets
 
 # misc
 .DS_Store

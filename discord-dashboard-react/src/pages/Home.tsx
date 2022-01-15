@@ -25,41 +25,56 @@ export function Home() {
 					localStorage.setItem('oauth-state', 'error');
 					localStorage.removeItem('access-token');
 					localStorage.removeItem('token-type');
+					document.getElementById('recache')?.remove();
+					document.getElementById('rewarn')?.remove();
 					return;
 				}
 			} else {
 				localStorage.setItem('oauth-state', 'error');
 				localStorage.removeItem('access-token');
 				localStorage.removeItem('token-type');
+				document.getElementById('recache')?.remove();
+				document.getElementById('rewarn')?.remove();
 				return;
 			}
 		}
 		const oauthState = localStorage.getItem('oauth-state');
 
 		if (oauthState === 'success') {
+			const info = localStorage.getItem('user-info');
+			// @ts-expect-error
+			const { username, discriminator } = JSON.parse(info);
+			// @ts-expect-error
+			document.getElementById('info').innerText = `Welcome ${username}#${discriminator}!`;
 			// @ts-expect-error
 			document.getElementById('login').innerText = 'Click to proceed to guilds.';
-			// window.location.href = '/menu';
-
-			// fetch('https://discord.com/api/users/@me', {
-			// 	headers: {
-			// 		authorization: `${tokenType} ${accessToken}`,
-			// 	},
-			// })
-			// 	.then((result) => result.json())
-			// 	.then((response) => {
-			// 		const { username, discriminator } = response;
-			// 		// @ts-expect-error
-			// 		document.getElementById('info').innerText = `Welcome ${username}#${discriminator}!\nPlease don't execute anything in the console.`;
-			// 	})
-			// 	.catch(console.error);
 		}
 	};
+
+	function recache() {
+		localStorage.removeItem('oauth-state');
+		localStorage.removeItem('user-info');
+		localStorage.removeItem('guild-id');
+		const tokenType = localStorage.getItem('token-type');
+		const accessToken = localStorage.getItem('access-token');
+
+		fetch('https://discord.com/api/users/@me', {
+			headers: {
+				authorization: `${tokenType} ${accessToken}`,
+			},
+		})
+			.then((result) => result.json())
+			.then((response) => {
+				localStorage.setItem('user-info', JSON.stringify(response));
+				window.location.reload();
+			})
+			.catch(console.error);
+	}
 
 	return (
 		<div
 			style={{
-				height: '100%',
+				height: '95%',
 				padding: '10px 25px',
 				boxSizing: 'border-box',
 				display: 'flex',
@@ -68,7 +83,20 @@ export function Home() {
 				justifyContent: 'space-between',
 			}}
 		>
-			<div id='info'>Not currently logged in.</div>
+			<div
+				style={{
+					padding: '10px 5px',
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+					justifyContent: 'space-between',
+				}}
+			>
+				<div id='info'>Not currently logged in.</div>
+				<div>​</div>
+				<div id='recache' onClick={() => recache()}>Refresh user cache?</div>
+				<div id='rewarn'>(This can cause errors if used too much)</div>
+			</div>
 			<div>
 				<HomeButton
 					onClick={() => {
