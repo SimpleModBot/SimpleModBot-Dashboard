@@ -4,7 +4,6 @@ import { Container } from '../utils/styles';
 
 export function Menu() {
 	const navigate = useNavigate();
-	let guilds: any[] = [];
 	const handleClick = (guildID: string) => {
 		localStorage.setItem('guild-id', guildID);
 		navigate('/guild/categories');
@@ -26,8 +25,9 @@ export function Menu() {
 		})
 			.then((result) => result.json())
 			.then((response) => {
+				let guilds: any[] = [];
 				response.forEach((element: any) => {
-					guilds.push(element);
+					if ((element.permissions & 0x20) == 0x20) guilds.push(element);
 				});
 				localStorage.setItem('guilds', JSON.stringify(guilds));
 				window.location.reload();
@@ -37,8 +37,8 @@ export function Menu() {
 
 	return (
 		<div>
-			<div onClick={() => recache()}>Reload guild cache?</div>
 			<Container>
+				<div onClick={() => recache()}>Reload guild cache?</div>
 				<h2 style={{ fontWeight: 300 }}>Select a Guild to edit.</h2>
 				<div>
 					{
