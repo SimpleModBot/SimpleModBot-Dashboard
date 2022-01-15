@@ -37,7 +37,9 @@ export function Home() {
 		const oauthState = localStorage.getItem('oauth-state');
 
 		if (oauthState === 'success') {
-			window.location.href = '/menu';
+			// @ts-expect-error
+			document.getElementById('login').innerText = 'Click to proceed to guilds.';
+			// window.location.href = '/menu';
 
 			// fetch('https://discord.com/api/users/@me', {
 			// 	headers: {
@@ -70,7 +72,8 @@ export function Home() {
 			<div>
 				<HomeButton
 					onClick={() => {
-						window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=911112976793215006&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fmenu&response_type=token&scope=identify%20guilds';
+						if (localStorage.getItem('oauth-state') === 'success') window.location.href = '/menu';
+						else window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=911112976793215006&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=token&scope=identify%20guilds';
 					}}
 					id='login'
 				>

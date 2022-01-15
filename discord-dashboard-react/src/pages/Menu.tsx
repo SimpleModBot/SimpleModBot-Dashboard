@@ -320,10 +320,10 @@ export function Menu() {
 		// 		response.forEach((element: any) => {
 		// 			guilds.push(element);
 		// 		});
-		// console.log(guilds);
+		// 		
 		// })
 		// .catch(console.error);
-	} else console.log("You are not logged in, you shouldn't be here...");
+	} else window.location.href = '/';
 
 	return (
 		<div>
