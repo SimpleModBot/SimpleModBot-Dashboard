@@ -7,24 +7,11 @@ import { Menu } from './pages/Menu';
 import { Appbar } from './components/Appbar';
 import { GuildName } from './pages/GuildName';
 
-/*
-	This function was brought to you by `Stanford47` :3
-*/
-function fourohfourkindasucks() {
-	return Math.round(Math.random() * 5);
-}
-let canthisworkplease: number = fourohfourkindasucks();
-
-
-/*
-	This function was brought to you by `itsamedood` 😎👌
- */
-
-//sorry dood
 const getRandom404Message = (): string => {
 	let messages: Array<string>;
+	const num = Math.floor(Math.random() * 4);
 
-	if (canthisworkplease === 4) messages = [
+	if (num === 3) messages = [
 		"Nothing here but us chickens!",
 		"Whatever page you're looking for, it's probably in a galaxy far, far away...",
 		"What page is that? I've never seen it before...",
@@ -47,13 +34,14 @@ const getRandom404Message = (): string => {
 	];
 	else messages = ["404: page not found."];
 
-	return fourohfourkindasucks() != 4 ? messages[0] : messages[Math.round(Math.random() * messages.length)];
-} // dood loves to advertise himself lol - Stanford47
+	if (messages.length === 0) return "404: page not found.";
+	return messages[Math.floor(Math.random() * messages.length)];
+}
 
 const FourOhFour = () => {
 	return (
 		<div>
-			<h1> Error: 404 <span> <img src='https://cdn.discordapp.com/emojis/912603383041511454.webp?size=96&quality=lossless' style={{ height: '50px', width: '50px' }}></img> </span> </h1>
+			<h1> Error: 404 <span> <img src='https://cdn.discordapp.com/emojis/912603383041511454.webp?size=96&quality=lossless' style={{ height: '60px', width: '50px' }}></img> </span> </h1>
 			<p>{getRandom404Message()}</p>
 		</div>
 	);
