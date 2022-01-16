@@ -12,3 +12,17 @@ html,
 #root {
   height: 100%;
 }
+
+a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #5757e7
+}
+
+a:hover {
+  transition-duration: 250ms;
+  text-decoration: underline;
+}

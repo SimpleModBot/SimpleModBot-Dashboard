@@ -94,10 +94,10 @@ export function Home() {
 			>
 				<div id='info'>Not currently logged in.</div>
 				<div>​</div>
-				<div id='recache' onClick={() => recache()}>Refresh user cache?</div>
-				<div id='rewarn'>(These can cause errors if used too much)</div>
+				<div id='recache' onClick={() => recache()} style={{ cursor: 'pointer', textDecoration: 'underline' }} >Refresh user cache?</div>
+				<div id='rewarn'>(This can cause errors if used too much)</div>
 			</div>
-			<div>
+			<div style={{ cursor: 'pointer' }}>
 				<HomeButton
 					onClick={() => {
 						if (localStorage.getItem('oauth-state') === 'success') window.location.href = '/menu';
