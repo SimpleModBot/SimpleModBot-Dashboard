@@ -41,7 +41,7 @@ const getRandom404Message = (): string => {
 const FourOhFour = () => {
 	return (
 		<div>
-			<h1> Error: 404 <span> <img src='https://cdn.discordapp.com/emojis/912603383041511454.webp?size=96&quality=lossless' style={{ height: '60px', width: '50px' }}></img> </span> </h1>
+			<h1> Error: 404 <span> <img src='https://cdn.discordapp.com/emojis/912603383041511454.webp?size=96&quality=lossless' alt='This hurt to make.' style={{ height: '60px', width: '50px', }}></img> </span> </h1>
 			<p>{getRandom404Message()}</p>
 		</div>
 	);

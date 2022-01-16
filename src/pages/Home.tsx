@@ -94,7 +94,9 @@ export function Home() {
 			>
 				<div id='info'>Not currently logged in.</div>
 				<div>​</div>
-				<div id='recache' onClick={() => recache()} style={{ cursor: 'pointer', textDecoration: 'underline' }} >Refresh user cache?</div>
+				<div id='recache' onClick={() => recache()} style={{ cursor: 'pointer', textDecoration: 'underline' }}>
+					Refresh user cache?
+				</div>
 				<div id='rewarn'>(This can cause errors if used too much)</div>
 			</div>
 			<div style={{ cursor: 'pointer' }}>
@@ -125,8 +127,12 @@ export function Home() {
 					justifyContent: 'space-between',
 				}}
 			>
-				<a href='/privacypolicy' className='a'>Privacy Policy</a>
-				<a href='/contact' className='a'>Contact</a>
+				<a href='/privacypolicy' className='a'>
+					Privacy Policy
+				</a>
+				<a href='/contact' className='a'>
+					Contact
+				</a>
 			</div>
 		</div>
 	);
