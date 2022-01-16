@@ -7,11 +7,36 @@ import { Menu } from './pages/Menu';
 import { Appbar } from './components/Appbar';
 import { GuildName } from './pages/GuildName';
 
+/**
+ * This function was brought to you by `itsamedood` 😎👌
+ */
+const getRandom404Message = (): string => {
+	const messages: Array<string> = [
+		"Nothing here but us chickens!",
+		"Whatever page you're looking for, it's probably in a galaxy far, far away...",
+		"What page is that? I've never seen it before...",
+		"Four Oh Four LOLLLL",
+		"itsamedood was here, because he got lost :(",
+		"Stanford47 hates GNU.",
+		"DEATHB4DEFEAT: *indistinguishable screeching noises*",
+		"tsx tbh",
+		".dnuof toN 404",
+		"CSS is love, CSS is life.",
+		"TypeScript > JavaScript.",
+		"Imagine searching for a page that doesn't exist lmao",
+		"Try searching in the void for that page.",
+		"page == null = true;",
+		"Even Docker couldn't find that page."
+	];
+
+	return messages[Math.floor(Math.random() * messages.length)];
+}
+
 const FourOhFour = () => {
 	return (
 		<div>
 			<h1>404</h1>
-			<p>This page does not exist.</p>
+			<p>{getRandom404Message()}</p>
 		</div>
 	);
 };
