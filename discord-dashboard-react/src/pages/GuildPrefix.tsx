@@ -4,7 +4,7 @@ import { Button, Container, Flex, InputField, Title } from '../utils/styles';
 export function GuildPrefix() {
 	const guildID = localStorage.getItem('guild-id');
 
-	if (!guildID || guildID == '' || guildID.length < 1) {
+	if (!guildID || guildID === '' || guildID.length < 1) {
 		console.log('guildID is not set');
 		window.location.href = '/menu';
 	} else {

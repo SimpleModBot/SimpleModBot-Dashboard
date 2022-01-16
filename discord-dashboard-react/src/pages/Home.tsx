@@ -95,7 +95,7 @@ export function Home() {
 				<div id='info'>Not currently logged in.</div>
 				<div>​</div>
 				<div id='recache' onClick={() => recache()}>Refresh user cache?</div>
-				<div id='rewarn'>(This can cause errors if used too much)</div>
+				<div id='rewarn'>(These can cause errors if used too much)</div>
 			</div>
 			<div>
 				<HomeButton

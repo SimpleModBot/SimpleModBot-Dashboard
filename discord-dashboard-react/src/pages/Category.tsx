@@ -6,7 +6,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 export function Category() {
 	const guildID = localStorage.getItem('guild-id');
 
-	if (!guildID || guildID == '' || guildID.length < 1) {
+	if (!guildID || guildID === '' || guildID.length < 1) {
 		console.log('guildID is not set');
 		window.location.href = '/menu';
 	} else {
@@ -19,7 +19,7 @@ export function Category() {
 	const name = searchParams.get('name')?.toString() || 'SimpleModBot';
 
 	if (prefix.length > 0 && !prefix.includes(' ') && prefix !== '\\') {
-		if (prefix == 'RESET') {
+		if (prefix === 'RESET') {
 			console.log('RESET');
 			setTimeout(() => {
 				navigate({ pathname: '/guild/categories', search: '?prefix=\\' });
@@ -28,7 +28,7 @@ export function Category() {
 	}
 
 	if (name.length > 0 && !name.includes(' ') && name !== 'SimpleModBot') {
-		if (name == 'RESET') {
+		if (name === 'RESET') {
 			console.log('RESET');
 			setTimeout(() => {
 				navigate({ pathname: '/guild/categories', search: '?name=SimpleModBot' });
