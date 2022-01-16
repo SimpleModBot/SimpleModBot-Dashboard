@@ -20,13 +20,17 @@ const getRandom404Message = (): string => {
 		"Stanford47 hates GNU.",
 		"DEATHB4DEFEAT: *indistinguishable screeching noises*",
 		"tsx tbh",
-		".dnuof toN 404",
+		".dnuoF toN 404",
 		"CSS is love, CSS is life.",
 		"TypeScript > JavaScript.",
 		"Imagine searching for a page that doesn't exist lmao",
 		"Try searching in the void for that page.",
-		"page == null = true;",
-		"Even Docker couldn't find that page."
+		"if (page === null) return true;",
+		"Even Google couldn't find that page.",
+		"404: Not Found",
+		"What page is that? I've never seen it before...",
+		"Why are you looking for that page? It's not here.",
+		"Why would you think that page exists? It doesn't.",
 	];
 
 	return messages[Math.floor(Math.random() * messages.length)];

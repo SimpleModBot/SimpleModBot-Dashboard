@@ -125,8 +125,8 @@ export function Home() {
 					justifyContent: 'space-between',
 				}}
 			>
-				<a className='a'>Privacy Policy</a>
-				<a className='a'>Contact</a>
+				<a href='/privacypolicy' className='a'>Privacy Policy</a>
+				<a href='/contact' className='a'>Contact</a>
 			</div>
 		</div>
 	);
