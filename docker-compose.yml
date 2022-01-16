@@ -5,7 +5,7 @@ services:
     restart: always
     build: .
     volumes:
-      - /home/death/Downloads/things/Code/dashboard_test/discord-dashboard-react:/app
+      - /home/death/Downloads/things/Code/dashboard_test/:/app
     links:
       - simplemodbot-db
     expose: 
