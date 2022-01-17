@@ -26,7 +26,6 @@ export function Home() {
 					localStorage.removeItem('access-token');
 					localStorage.removeItem('token-type');
 					document.getElementById('recache')?.remove();
-					document.getElementById('rewarn')?.remove();
 					return;
 				}
 			} else {
@@ -34,7 +33,6 @@ export function Home() {
 				localStorage.removeItem('access-token');
 				localStorage.removeItem('token-type');
 				document.getElementById('recache')?.remove();
-				document.getElementById('rewarn')?.remove();
 				return;
 			}
 		}
@@ -94,16 +92,15 @@ export function Home() {
 			>
 				<div id='info'>Not currently logged in.</div>
 				<div>​</div>
-				<div id='recache' onClick={() => recache()} style={{ cursor: 'pointer', textDecoration: 'underline' }}>
-					Refresh user cache?
+				<div id='recache' onClick={() => recache()} style={{ cursor: 'pointer', color: '#0645AD' }}>
+					Refresh user cache? (Can cause errors if spammed)
 				</div>
-				<div id='rewarn'>(This can cause errors if used too much)</div>
 			</div>
 			<div style={{ cursor: 'pointer' }}>
 				<HomeButton
 					onClick={() => {
 						if (localStorage.getItem('oauth-state') === 'success') window.location.href = '/menu';
-						else window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=911112976793215006&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=token&scope=identify%20guilds';
+						else window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=911112976793215006&redirect_uri=http%3A%2F%2Fdashboard.localhost%3A3000&response_type=token&scope=identify%20guilds';
 					}}
 					id='login'
 				>

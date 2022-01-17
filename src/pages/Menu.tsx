@@ -38,14 +38,16 @@ export function Menu() {
 	return (
 		<div>
 			<Container>
-				<div style={{padding: '5px 0px'}} onClick={() => recache()}>Reload guild cache?</div>
+				<div style={{ cursor: 'pointer', color: '#0645AD', padding: '5px 0px' }} onClick={() => recache()}>
+					Reload guild cache?
+				</div>
 				<h2 style={{ fontWeight: 300 }}>Select a Guild to edit.</h2>
 				<div>
 					{
 						// @ts-expect-error
 						JSON.parse(localStorage.getItem('guilds'))?.map((guild) => {
 							return (
-								<div key={guild.id} onClick={() => handleClick(guild.id)}>
+								<div style={{ cursor: 'pointer', color: '#0645AD' }} key={guild.id} onClick={() => handleClick(guild.id)}>
 									<GuildItem guild={guild} />
 								</div>
 							);
