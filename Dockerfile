@@ -1,4 +1,5 @@
-FROM node:16-buster-slim
-WORKDIR /app
-RUN npm install --silent --production --no-progress --no-audit --no-optional --prefer-offline --no-package-lock
-CMD npm run start
+FROM node:17-buster-slim
+WORKDIR /app/dash
+RUN npm install -g react-scripts
+# CMD npm run start
+CMD react-scripts start
