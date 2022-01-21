@@ -1,7 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Category } from './pages/guild/Category';
-import { GuildPrefix } from './pages/guild/GuildPrefix';
+import { GuildPrefix } from './pages/guild/Prefix';
+import { GuildMemberRole } from './pages/guild/MemberRole';
 import { Home } from './pages/Home';
 import { Menu } from './pages/Menu';
 import { Appbar } from './components/Appbar';
@@ -20,6 +21,7 @@ function App() {
 				<Route path='/menu' element={<Menu />} />
 				<Route path='/guild/categories' element={<Category />} />
 				<Route path='/guild/prefix' element={<GuildPrefix />} />
+				<Route path='/guild/memberrole' element={<GuildMemberRole />} />
 			</Routes>
 		</React.StrictMode>
 	);
