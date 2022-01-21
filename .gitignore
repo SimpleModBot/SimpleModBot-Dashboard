@@ -5,11 +5,9 @@ node_modules
 
 # testing
 coverage
-__mocks__
 
 # production
 build
-src/utils/secrets
 
 # misc
 .DS_Store

@@ -18,7 +18,7 @@ export const Appbar = () => {
 				src={`https://cdn.discordapp.com/icons/${cguild.id}/${cguild.icon}.webp?size=128`}
 				alt='guild-icon'
 			></img>
-			<p style={{ fontSize: '20px', fontWeight: 'normal' }}>Configuring {guildID}</p>
+			<p style={{ fontSize: '20px', fontWeight: 'normal', padding: '1px 10px' }}>Configuring {guildID}</p>
 		</AppbarStyle>
 	);
 };

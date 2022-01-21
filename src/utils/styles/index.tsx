@@ -35,7 +35,7 @@ export const Container = styled.div`
     margin: 0 auto;
 `;
 
-export const AppbarStyle = styled.header`
+export const AppbarStyle = styled.div`
     display: flex;
     align-items: center;
     padding: 5px;

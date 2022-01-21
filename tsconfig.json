@@ -21,9 +21,6 @@
     "jsx": "react-jsx",
     "noImplicitAny": false
   },
-  "include": [
-    "src"
-  ],
   "exclude": [
     "node_modules",
   ],

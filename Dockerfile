@@ -1,5 +1,5 @@
 FROM node:17-buster-slim
 WORKDIR /app/dash
-RUN npm install -g react-scripts
+RUN npm i -g react-scripts@5
 # CMD npm run start
 CMD react-scripts start

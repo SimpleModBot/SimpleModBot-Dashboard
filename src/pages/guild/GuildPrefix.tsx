@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Button, Container, Flex, InputField, Title } from '../utils/styles';
+import { Button, Container, Flex, InputField, Title } from '../../utils/styles';
 
 export function GuildPrefix() {
 	const guildID = localStorage.getItem('guild-id');

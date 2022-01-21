@@ -93,7 +93,7 @@ export function Home() {
 				<div id='info'>Not currently logged in.</div>
 				<div>​</div>
 				<div id='recache' onClick={() => recache()} style={{ cursor: 'pointer', color: '#0645AD' }}>
-					Refresh user cache? (Can cause errors if spammed)
+					Refresh user cache?
 				</div>
 			</div>
 			<div style={{ cursor: 'pointer' }}>
