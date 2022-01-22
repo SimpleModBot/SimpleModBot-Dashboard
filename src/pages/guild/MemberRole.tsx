@@ -1,5 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { Button, Container, Flex, InputField, Title } from '../../utils/styles';
+
 export function GuildMemberRole() {
     const guildID = localStorage.getItem('guild-id');
 
@@ -10,27 +11,75 @@ export function GuildMemberRole() {
         console.log('guildID is set');
     }
 
-    const navigate = useNavigate();
     const handleClick = (val?: string) => {
         // @ts-expect-error
-        const v = val || document.getElementById('newprefix').value;
-        navigate({
-            pathname: `/guild/categories`,
-            search: `?prefix=${v.replace(/ /g, '')}`,
+        let memrole = val || document.getElementById('newmemrole').value;
+
+        if (memrole.length > 0 && !memrole.includes(' ')) {
+            if (memrole === 'RESET') {
+                axios({
+                    url: `http://localhost:${
+                        process.env.PORT || `3001`
+                    }/guild/update/`,
+                    method: `patch`,
+                    data: {
+                        Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,
+                        Guild: guildID,
+                        new: {
+                            memberRoleID: '',
+                        },
+                    },
+                }).then((v) => {
+                    console.log('RESET\n', v);
+                });
+            } else {
+                axios({
+                    url: `http://localhost:${
+                        process.env.PORT || `3001`
+                    }/guild/update/`,
+                    method: `patch`,
+                    data: {
+                        Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,
+                        Guild: guildID,
+                        new: {
+                            memberRoleID: memrole,
+                        },
+                    },
+                }).then((v) => {
+                    console.log('SET_NEW_PREFIX\n', v);
+                });
+            }
+        }
+    };
+
+    window.onload = () => {
+        let doc = document.getElementById('newmemrole');
+
+        axios({
+            url: `http://localhost:${process.env.PORT || `3001`}/guild/get/`,
+            method: `put`,
+            data: {
+                Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,
+                Guild: guildID,
+            },
+        }).then((v) => {
+            console.log('GET_ROLE\n', v);
+            // @ts-expect-error
+            doc.value = v.data.memberRoleID;
         });
     };
 
     return (
         <div style={{ padding: '35px' }}>
             <Container style={{ width: '800px' }}>
-                <Title>Update the command prefix</Title>
+                <Title>Update the guild member role ID</Title>
                 <form>
                     <div>
-                        <label htmlFor="prefix" style={{ fontSize: '20px' }}>
-                            Current prefix
+                        <label htmlFor="memrole" style={{ fontSize: '20px' }}>
+                            Current member role ID
                         </label>
                     </div>
-                    <InputField id="newprefix" style={{ margin: '10px 0px' }} />
+                    <InputField id="newmemrole" style={{ margin: '10px 0px' }} />
                     <Flex justifyContent="flex-end">
                         <Button
                             variant="secondary"

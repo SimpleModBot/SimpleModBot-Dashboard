@@ -9,7 +9,7 @@ import {
 } from '../../utils/styles';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { FaQuestionCircle } from 'react-icons/fa';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export function Category() {
     const guildID = localStorage.getItem('guild-id');
