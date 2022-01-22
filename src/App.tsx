@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Category } from './pages/guild/Category';
 import { GuildPrefix } from './pages/guild/Prefix';
 import { GuildMemberRole } from './pages/guild/MemberRole';
+import { AddCC } from './pages/guild/AddCC';
 import { Home } from './pages/Home';
 import { Menu } from './pages/Menu';
 import { Appbar } from './components/Appbar';
@@ -22,6 +23,7 @@ function App() {
 				<Route path='/guild/categories' element={<Category />} />
 				<Route path='/guild/prefix' element={<GuildPrefix />} />
 				<Route path='/guild/memberrole' element={<GuildMemberRole />} />
+				<Route path='/guild/addcc' element={<AddCC />} />
 			</Routes>
 		</React.StrictMode>
 	);

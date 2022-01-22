@@ -1,4 +1,3 @@
-// btoa(Math.random() * Date.now())
 import {
     CategoryContainer,
     Container,
@@ -7,8 +6,7 @@ import {
     TextButton,
     Title,
 } from '../../utils/styles';
-import { IoSettingsOutline } from 'react-icons/io5';
-import { FaQuestionCircle } from 'react-icons/fa';
+import { IoSettingsOutline, IoChatboxOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 
 export function Category() {
@@ -42,12 +40,12 @@ export function Category() {
                 </CategoryContainer>
                 <CategoryContainer>
                     <Flex alignItems="center">
-                        <FaQuestionCircle size={40} />
-                        <Title>Random</Title>
+                        <IoChatboxOutline size={40} />
+                        <Title>Custom commands</Title>
                     </Flex>
                     <Grid>
-                        <TextButton onClick={() => navigate('/guild/name')}>
-                            Bot nickname
+                        <TextButton onClick={() => navigate('/guild/addcc')}>
+                            Add custom command
                         </TextButton>
                     </Grid>
                 </CategoryContainer>
