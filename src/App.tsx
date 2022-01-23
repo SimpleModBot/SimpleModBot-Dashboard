@@ -5,6 +5,7 @@ import { GuildPrefix } from './pages/guild/Prefix';
 import { GuildMemberRole } from './pages/guild/MemberRole';
 import { AddCC } from './pages/guild/AddCC';
 import { DeleteCC } from './pages/guild/DeleteCC';
+import { ListCC } from './pages/guild/ListCC';
 import { Home } from './pages/Home';
 import { Menu } from './pages/Menu';
 import { Appbar } from './components/Appbar';
@@ -26,6 +27,7 @@ function App() {
 				<Route path='/guild/memberrole' element={<GuildMemberRole />} />
 				<Route path='/guild/addcc' element={<AddCC />} />
 				<Route path='/guild/delcc' element={<DeleteCC />} />
+				<Route path='/guild/listcc' element={<ListCC />} />
 			</Routes>
 		</React.StrictMode>
 	);
