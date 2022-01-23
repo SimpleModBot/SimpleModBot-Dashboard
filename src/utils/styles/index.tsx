@@ -114,4 +114,28 @@ export const Button = styled.button<ButtonProps>`
             variant === 'secondary' && css`
         background-color: #3d3d3d;
     `};
+    ${({ variant }) =>
+            variant === 'success' && css`
+        background-color: #0ce822;
+    `};
+    ${({ variant }) =>
+            variant === 'warning' && css`
+        background-color: #ede90e;
+    `};
+    ${({ variant }) =>
+            variant === 'danger' && css`
+        background-color: #f44336;
+    `};
+    ${({ variant }) =>
+            variant === 'info' && css`
+        background-color: #008CBA;
+    `};
+    ${({ variant }) =>
+            variant === 'light' && css`
+        background-color: #ffffff;
+    `};
+    ${({ variant }) =>
+            variant === 'dark' && css`
+        background-color: #555555;
+    `};
 `;

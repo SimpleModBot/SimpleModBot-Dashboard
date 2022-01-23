@@ -47,6 +47,9 @@ export function Category() {
                         <TextButton onClick={() => navigate('/guild/addcc')}>
                             Add custom command
                         </TextButton>
+                        <TextButton onClick={() => navigate('/guild/delcc')}>
+                            Delete custom command
+                        </TextButton>
                     </Grid>
                 </CategoryContainer>
             </Container>
