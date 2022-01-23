@@ -34,7 +34,7 @@ export function ListCC() {
                 // return `<div style="cursor: pointer; color: #0645AD; padding: 5px 0px;">${val.Command}</div>`;
                 return `<div style={{ cursor: 'pointer', color: '#0645AD', padding: '5px 0px', }}>Name: ${val.Command}</div><div>Response: ${val.Response}</div><div>​</div>`;
             })
-            .join('');
+            .join('') || '<div>No commands found</div>';
     };
 
     return (

@@ -7,11 +7,9 @@ import {
     Title,
 } from '../../utils/styles';
 import { IoSettingsOutline, IoChatboxOutline } from 'react-icons/io5';
-import { useNavigate } from 'react-router-dom';
 
 export function Category() {
     const guildID = localStorage.getItem('guild-id');
-    const navigate = useNavigate();
 
     if (!guildID || guildID === '' || guildID.length < 1) {
         console.log('guildID is not set');
@@ -30,10 +28,10 @@ export function Category() {
                         <Title>General</Title>
                     </Flex>
                     <Grid>
-                        <TextButton onClick={() => navigate('/guild/prefix')}>
+                        <TextButton onClick={() => window.location.href = '/guild/prefix'}>
                             Command prefix
                         </TextButton>
-                        <TextButton onClick={() => navigate('/guild/memberrole')}>
+                        <TextButton onClick={() => window.location.href = '/guild/memberrole'}>
                             Member role
                         </TextButton>
                     </Grid>
@@ -44,13 +42,13 @@ export function Category() {
                         <Title>Custom commands</Title>
                     </Flex>
                     <Grid>
-                        <TextButton onClick={() => navigate('/guild/addcc')}>
+                        <TextButton onClick={() => window.location.href = '/guild/addcc'}>
                             Add custom command
                         </TextButton>
-                        <TextButton onClick={() => navigate('/guild/delcc')}>
+                        <TextButton onClick={() => window.location.href = '/guild/delcc'}>
                             Delete custom command
                         </TextButton>
-                        <TextButton onClick={() => navigate('/guild/listcc')}>
+                        <TextButton onClick={() => window.location.href = '/guild/listcc'}>
                             List custom commands
                         </TextButton>
                     </Grid>
