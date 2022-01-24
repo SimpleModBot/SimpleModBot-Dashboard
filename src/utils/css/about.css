@@ -1,0 +1,10 @@
+.AboutHeader {
+    text-align: center;
+    font-size: 50px;
+}
+
+.AboutText {
+    text-align: center;
+    font-size: 24px;
+    word-wrap: break-word;
+}

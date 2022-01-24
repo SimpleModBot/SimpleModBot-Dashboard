@@ -9,7 +9,9 @@ import { ListCC } from './pages/guild/ListCC';
 import { Home } from './pages/Home';
 import { Menu } from './pages/Menu';
 import { Appbar } from './components/Appbar';
-import { FourOhFour } from './pages/FourOhFour';
+// @ts-ignore
+import { FourOhFour } from './pages/other/FourOhFour';
+import { About } from './pages/other/About';
 
 function App() {
 	if (window.location.host.split('.')[0] !== 'dashboard') return <div></div>;
@@ -20,8 +22,9 @@ function App() {
 			</Routes>
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='*' element={<FourOhFour />} />
+				<Route path='/*' element={<FourOhFour />} />
 				<Route path='/menu' element={<Menu />} />
+				<Route path='/about' element={<About />} />
 				<Route path='/guild/categories' element={<Category />} />
 				<Route path='/guild/prefix' element={<GuildPrefix />} />
 				<Route path='/guild/memberrole' element={<GuildMemberRole />} />

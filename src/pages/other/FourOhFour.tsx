@@ -2,7 +2,7 @@
  * 404 Code moved from App.tsx to here by itsamedood :)
  */
 
-import "../utils/css/fourohfour.css";
+import "../../utils/css/fourohfour.css";
 import { Link } from "react-router-dom";
 
 function getRandom404Message() {
@@ -11,8 +11,8 @@ function getRandom404Message() {
     if (~~(Math.random() * 4)) {
         messages = [
             'Nothing here but us chickens!',
-            "Whatever page you're looking for, it's probably in a galaxy far, far away...",
-            "What page is that? I've never seen it before...",
+            'Whatever page you\'re looking for, it\'s probably in a galaxy far, far away...',
+            'What page is that? I\'ve never seen it before...',
             'Four Oh Four LOLLLL',
             'itsamedood was here, because he got lost :(',
             'Stanford47 hates GNU.',
@@ -29,9 +29,9 @@ function getRandom404Message() {
             'Why are you looking for that page? It\'s not here.',
             'Why would you think that page exists? It doesn\'t.',
         ];
-    } else messages['Page requested was not found.'];
+    } else messages['The requested page does not exist or is not implemented.'];
 
-    if (messages.length == 0) return 'Page requested not found.';
+    if (messages.length == 1) return messages[0];
 
     return messages[~~(Math.random() * messages.length)];
 };
