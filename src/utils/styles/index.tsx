@@ -95,7 +95,7 @@ export const InputField = styled.input`
 `;
 
 type ButtonProps = {
-    variant: 'primary' | 'secondary';
+    variant: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
 };
 
 export const Button = styled.button<ButtonProps>`
