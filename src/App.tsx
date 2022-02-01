@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { Appbar } from './components/Appbar';
-import { Userbar } from './components/UserBar';
+// import { Userbar } from './components/UserBar';
 import { FourOhFour, About } from './pages/other';
 
 import { Home } from './pages/Home';

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { AppbarStyle } from '../utils/styles';
 
 export const Appbar = () => {
 	const guildID = localStorage.getItem('guild-id');
@@ -12,15 +11,18 @@ export const Appbar = () => {
 	const cuser = JSON.parse(user);
 
 	return (
-		// <AppbarStyle>
 		<div
 			style={{
-				display: 'flex',
+				display: 'inline-flex',
+				justifyContent: 'space-between',
+				width: '100%',
 				alignItems: 'center',
-				padding: '5px',
+				padding: '10px',
 				boxSizing: 'border-box',
 				backgroundColor: '#2121212a',
 				borderBottom: '1px solid #58585863',
+				borderLeft: '1px solid #58585863',
+				borderRight: '1px solid #58585863',
 			}}
 		>
 			<img
@@ -37,6 +39,8 @@ export const Appbar = () => {
 				Configuring {cguild.name}
 			</Link>
 
+			<div style={{ alignContent: 'center', margin: '0px 30%' }}></div>
+
 			<Link to='/user/' style={{ fontSize: '20px', fontWeight: 'normal', padding: '1px 10px' }}>
 				{cuser.username}
 			</Link>
@@ -51,6 +55,5 @@ export const Appbar = () => {
 				alt='user-icon'
 			></img>
 		</div>
-		// </AppbarStyle>
 	);
 };
