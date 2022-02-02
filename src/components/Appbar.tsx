@@ -7,7 +7,7 @@ export const Appbar = () => {
 	const cguild = JSON.parse(guilds).find((guild: any) => guild.id === guildID);
 
 	const user = localStorage.getItem('user-info');
-	if (!guilds || !user) return <div>You are missing either the user cache or the guild cache. Please refresh it to view the website properly.</div>;
+	if (!guilds || !user) return <Link to='/user'>You are missing either the user cache or the guild cache. Please refresh it to view the website properly.</Link>;
 	const cuser = JSON.parse(user);
 
 	return (

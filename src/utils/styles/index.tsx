@@ -66,7 +66,7 @@ export const CategoryContainer = styled.div`
 	border-radius: 5px;
 	border: 1px solid #58585863;
 	background-color: #2626264a;
-	margin: 5px 0px;
+	margin: 10px 0px;
 	box-shadow: 0px 1px 5px 0px #000000;
 `;
 

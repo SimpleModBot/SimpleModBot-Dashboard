@@ -1,21 +1,43 @@
-export const Userbar = () => {
-	// const user = localStorage.getItem('user-info');
-    // if (!user) return null;
-	// const cuser = JSON.parse(user);
+import { Link } from 'react-router-dom';
 
-	// return (
-	// 	<AppbarStyle>
-	// 		<img
-	// 			style={{
-	// 				width: '45px',
-	// 				height: '45px',
-	// 				borderRadius: '50%',
-	// 				boxShadow: '0px 1px 5px 0px #000000',
-	// 			}}
-	// 			src={`https://cdn.discordapp.com/avatars/${cuser.id}/${cuser.avatar}.png?size=128`}
-	// 			alt='user-icon'
-	// 		></img>
-	// 		<p style={{ fontSize: '20px', fontWeight: 'normal', padding: '1px 10px' }}>{cuser.username}</p>
-	// 	</AppbarStyle>
-	// );
+export const Userbar = () => {
+	const guildID = localStorage.getItem('guild-id');
+	const guilds = localStorage.getItem('guilds');
+	// @ts-expect-error
+	const cguild = JSON.parse(guilds).find((guild: any) => guild.id === guildID);
+
+	const user = localStorage.getItem('user-info');
+	if (!guilds || !user) return <Link to='/user'>You are missing either the user cache or the guild cache. Please refresh it to view the website properly.</Link>;
+	const cuser = JSON.parse(user);
+
+	return (
+		<div
+			style={{
+				display: 'inline-flex',
+				justifyContent: 'right',
+				width: '100%',
+				alignItems: 'center',
+				padding: '10px',
+				boxSizing: 'border-box',
+				backgroundColor: '#2121212a',
+				borderBottom: '1px solid #58585863',
+				borderLeft: '1px solid #58585863',
+				borderRight: '1px solid #58585863',
+			}}
+		>
+			<Link to='/user/' style={{ fontSize: '20px', fontWeight: 'normal', padding: '1px 10px' }}>
+				{cuser.username}
+			</Link>
+			<img
+				style={{
+					width: '45px',
+					height: '45px',
+					borderRadius: '50%',
+					boxShadow: '0px 1px 5px 0px #000000',
+				}}
+				src={`https://cdn.discordapp.com/avatars/${cuser.id}/${cuser.avatar}.png?size=128`}
+				alt='user-icon'
+			></img>
+		</div>
+	);
 };

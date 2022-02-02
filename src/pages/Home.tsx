@@ -73,7 +73,7 @@ export function Home() {
 		<div
 			style={{
 				height: '95%',
-				padding: '10px 25px',
+				padding: '30px 25px',
 				boxSizing: 'border-box',
 				display: 'flex',
 				flexDirection: 'column',
@@ -83,7 +83,7 @@ export function Home() {
 		>
 			<div
 				style={{
-					padding: '10px 5px',
+					padding: '0px 5px',
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
@@ -120,7 +120,7 @@ export function Home() {
 			<div
 				style={{
 					display: 'flex',
-					width: '200px',
+					width: '175px',
 					justifyContent: 'space-between',
 				}}
 			>
