@@ -18,7 +18,7 @@ export function Category() {
 				<CategoryContainer>
 					<Flex alignItems='center'>
 						<IoSettingsOutline size={40} />
-						<Title>General</Title>
+						<Title>Guild</Title>
 					</Flex>
 					<Grid>
 						<TextButton onClick={() => (window.location.href = '/guild/prefix')}>Command prefix</TextButton>

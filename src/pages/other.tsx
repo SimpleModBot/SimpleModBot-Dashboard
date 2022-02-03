@@ -7,7 +7,7 @@ export function About() {
 		<div>
 			<h1 className='AboutHeader'>About my bot!</h1>
 			<div></div>
-			<p className='AboutText'>sheisse</p>
+			<p className='AboutText'>SimpleModBot² is Discord bot that can do moderation and lots of other cool things!</p>
 		</div>
 	);
 }
@@ -15,8 +15,8 @@ export function About() {
 function getRandom404Message() {
 	let messages: Array<string> = [
 		'Nothing here but us chickens!',
-		"Whatever page you're looking for, it's probably in a galaxy far, far away...",
-		"What page is that? I've never seen it before...",
+		'Whatever page you\'re looking for, it\'s probably in a galaxy far, far away...',
+		'What page is that? I\'ve never seen it before...',
 		'Four Oh Four LOLLLL',
 		'itsamedood was here, because he got lost :(',
 		'Stanford47 hates GNU.',
@@ -25,14 +25,16 @@ function getRandom404Message() {
 		'.dnuoF toN 404',
 		'CSS is love, CSS is life.',
 		'TypeScript > JavaScript.',
-		"Imagine searching for a page that doesn't exist lmao",
+		'Imagine searching for a page that doesn\'t exist lmao',
 		'Try searching in the void for that page.',
-		'if (page === null) return true;',
-		"Even Google couldn't find that page.",
-		"What page is that? I've never seen it before...",
-		"Why are you looking for that page? It's not here.",
-		"Why would you think that page exists? It doesn't.",
+		'if (typeof page === undefined) throw new FourOhFourError();',
+		'Even Google couldn\'t find that page.',
+		'What page is that? I\'ve never seen it before...',
+		'Why are you looking for that page? It\'s not here.',
+		'Why would you think that page exists? It doesn\'t.',
 		'The requested page does not exist or is not implemented.',
+		'Makefile > CMake',
+		'Why does DEATH\'s keyboard scream at me??', // seriously wtf
 	];
 
 	return messages[~~(Math.random() * messages.length)];

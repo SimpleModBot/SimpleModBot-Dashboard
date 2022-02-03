@@ -1,13 +1,8 @@
 import { Link } from 'react-router-dom';
 
 export const Userbar = () => {
-	const guildID = localStorage.getItem('guild-id');
-	const guilds = localStorage.getItem('guilds');
-	// @ts-expect-error
-	const cguild = JSON.parse(guilds).find((guild: any) => guild.id === guildID);
-
 	const user = localStorage.getItem('user-info');
-	if (!guilds || !user) return <Link to='/user'>You are missing either the user cache or the guild cache. Please refresh it to view the website properly.</Link>;
+	if (!user) return <Link to='/user'>You are missing the user cache. Please login and load the cache in user settings to view the site properly</Link>;
 	const cuser = JSON.parse(user);
 
 	return (
@@ -23,9 +18,12 @@ export const Userbar = () => {
 				borderBottom: '1px solid #58585863',
 				borderLeft: '1px solid #58585863',
 				borderRight: '1px solid #58585863',
+				fontSize: '20px',
+				fontWeight: 'normal',
 			}}
 		>
-			<Link to='/user/' style={{ fontSize: '20px', fontWeight: 'normal', padding: '1px 10px' }}>
+			<Link to='/' style={{ marginLeft: '50%', marginRight: '36%', padding: '1px 10px' }}>Home</Link>
+			<Link to='/user/' style={{ padding: '1px 10px' }}>
 				{cuser.username}
 			</Link>
 			<img

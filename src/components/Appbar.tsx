@@ -14,7 +14,7 @@ export const Appbar = () => {
 		<div
 			style={{
 				display: 'inline-flex',
-				justifyContent: 'space-between',
+				justifyContent: 'right',
 				width: '100%',
 				alignItems: 'center',
 				padding: '10px',
@@ -23,6 +23,8 @@ export const Appbar = () => {
 				borderBottom: '1px solid #58585863',
 				borderLeft: '1px solid #58585863',
 				borderRight: '1px solid #58585863',
+				fontSize: '20px',
+				fontWeight: 'normal',
 			}}
 		>
 			<img
@@ -35,11 +37,11 @@ export const Appbar = () => {
 				src={`https://cdn.discordapp.com/icons/${cguild.id}/${cguild.icon}.webp?size=128`}
 				alt='guild-icon'
 			></img>
-			<Link to='/menu' style={{ fontSize: '20px', fontWeight: 'normal', padding: '1px 10px' }}>
+			<Link to='/menu' style={{ fontSize: '20px', marginRight: 'auto', fontWeight: 'normal', padding: '1px 10px' }}>
 				Configuring {cguild.name}
 			</Link>
 
-			<div style={{ alignContent: 'center', margin: '0px 30%' }}></div>
+			<Link to='/' style={{ alignContent: 'center', marginLeft: '0px', marginRight: '36%', padding: '1px 10px' }}>Home</Link>
 
 			<Link to='/user/' style={{ fontSize: '20px', fontWeight: 'normal', padding: '1px 10px' }}>
 				{cuser.username}
