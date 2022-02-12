@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { InputField, Flex, Button, Container, Title } from '../utils/styles';
+import { InputField, Flex, Button, Container, Title, CategoryContainer, Grid, TextButton } from '../utils/styles';
 import mongoose from 'mongoose';
+import { IoSettingsOutline, IoChatboxOutline } from 'react-icons/io5';
 
 export function AddCC() {
 	const guildID = localStorage.getItem('guild-id');
@@ -181,7 +182,7 @@ export function ListCC() {
 	}
 
 	window.onload = async () => {
-		let cmds: any = [];
+		let cmds: any = [{ Command: '<strong>Name</strong>', Response: '<strong>Response</strong>' }];
 
 		await axios({
 			url: `http://localhost:${process.env.PORT || `3001`}/cc/`,
@@ -201,17 +202,20 @@ export function ListCC() {
 		document.getElementById('list').innerHTML =
 			cmds
 				.map((val: any) => {
-					// return `<div style="cursor: pointer; color: #0645AD; padding: 5px 0px;">${val.Command}</div>`;
-					return `<div style={{ cursor: 'pointer', color: '#0645AD', padding: '5px 0px', }}>Name: ${val.Command}</div><div>Response: ${val.Response}</div><div>​</div>`;
+					return `<div style={{ cursor: 'pointer', color: '#0645AD', padding: '5px 0px', }}>${val.Command}</div><div>${val.Response}</div><div>​</div>`;
 				})
 				.join('') || '<div>No commands found</div>';
 	};
 
 	return (
 		<div style={{ padding: '35px' }}>
-			<Container style={{ width: '800px' }}>
-				<Title>All custom commands</Title>
-				<div id='list'></div>
+			<Container>
+				<CategoryContainer>
+					<Flex alignItems='center'>
+						<Title>All custom commands</Title>
+					</Flex>
+					<Grid id='list'></Grid>
+				</CategoryContainer>
 			</Container>
 		</div>
 	);
