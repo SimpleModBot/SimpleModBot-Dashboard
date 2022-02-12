@@ -32,6 +32,7 @@ export function Category() {
 					</Flex>
 					<Grid>
 						<TextButton onClick={() => (window.location.href = '/guild/addcc')}>Add custom command</TextButton>
+						<TextButton onClick={() => (window.location.href = '/guild/updatecc')}>Edit custom command</TextButton>
 						<TextButton onClick={() => (window.location.href = '/guild/delcc')}>Delete custom command</TextButton>
 						<TextButton onClick={() => (window.location.href = '/guild/listcc')}>List custom commands</TextButton>
 					</Grid>

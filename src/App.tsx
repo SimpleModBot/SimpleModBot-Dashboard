@@ -10,7 +10,7 @@ import { Menu } from './pages/Menu';
 
 import { User, CacheUser, CacheGuild } from './pages/user';
 
-import { AddCC, DeleteCC, ListCC } from './pages/cc';
+import { AddCC, DeleteCC, EditCC, ListCC } from './pages/cc';
 import { Category, Prefix, MemberRole } from './pages/guild';
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
 				<Route path='/guild/memberrole' element={<MemberRole />} />
 
 				<Route path='/guild/addcc' element={<AddCC />} />
+				<Route path='/guild/updatecc' element={<EditCC />} />
 				<Route path='/guild/delcc' element={<DeleteCC />} />
 				<Route path='/guild/listcc' element={<ListCC />} />
 			</Routes>

@@ -1,4 +1,4 @@
-import { FaDiscord, FaQuestionCircle } from 'react-icons/fa';
+import { FaDiscord, FaQuestionCircle, FaArrowUp } from 'react-icons/fa';
 import { HomeButton } from '../utils/styles/index';
 import '../utils/css/home.css';
 
@@ -12,8 +12,14 @@ export function Home() {
 			localStorage.setItem('oauth-state', 'success');
 			localStorage.setItem('access-token', accessToken);
 			localStorage.setItem('token-type', tokenType);
+
+			const login = document.getElementById('login');
+			if (login) {
+				login.innerText = 'Proceed to guilds.';
+				login.style.fontSize = '20px';
+			}
 		}
-		if (!accessToken && !tokenType) {
+		if (!accessToken || !tokenType) {
 			if (localStorage.getItem('oauth-state') === 'success') {
 				const token = localStorage.getItem('access-token');
 				const type = localStorage.getItem('token-type');
