@@ -8,7 +8,7 @@ import { FourOhFour, About } from './pages/other';
 import { Home } from './pages/Home';
 import { Menu } from './pages/Menu';
 
-import { User, CacheUser, CacheGuild } from './pages/user';
+import { User, CacheUser, CacheGuild, CacheAdditional } from './pages/user';
 
 import { AddCC, DeleteCC, EditCC, ListCC } from './pages/cc';
 import { Category, Prefix, MemberRole } from './pages/guild';
@@ -33,6 +33,7 @@ function App() {
 				<Route path='/user' element={<User />} />
 				<Route path='/user/cache/user' element={<CacheUser />} />
 				<Route path='/user/cache/guild' element={<CacheGuild />} />
+				<Route path='/user/cache/additional' element={<CacheAdditional />} />
 
 				<Route path='/guild/categories' element={<Category />} />
 
