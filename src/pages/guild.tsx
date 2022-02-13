@@ -152,7 +152,7 @@ export function Prefix() {
 		// @ts-expect-error
 		let prefix = val || document.getElementById('newprefix').value;
 
-		if (prefix.length > 0 && !prefix.includes(' ')) {
+		if (prefix.length > 0) {
 			if (prefix === 'RESET') {
 				axios({
 					url: `http://localhost:${process.env.PORT || `3001`}/guild/update/`,
@@ -162,24 +162,38 @@ export function Prefix() {
 						Guild: guildID,
 						new: {
 							prefix: '\\',
+							prefixes: [],
 						},
 					},
 				}).then((v) => {
 					console.log('RESET\n', v);
+					window.location.reload();
 				});
 			} else {
 				axios({
-					url: `http://localhost:${process.env.PORT || `3001`}/guild/update/`,
-					method: `patch`,
+					url: `http://localhost:${process.env.PORT || `3001`}/guild/get/`,
+					method: `put`,
 					data: {
 						Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,
 						Guild: guildID,
-						new: {
-							prefix: prefix,
-						},
 					},
-				}).then((v) => {
-					console.log('SET_NEW_PREFIX\n', v);
+				}).then((v1) => {
+					let prefixs = prefix.split(/,\s/g);
+
+					axios({
+						url: `http://localhost:${process.env.PORT || `3001`}/guild/update/`,
+						method: `patch`,
+						data: {
+							Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,
+							Guild: guildID,
+							new: {
+								prefixes: prefixs,
+							},
+						},
+					}).then((v2) => {
+						console.log('SET_NEW_PREFIX\n', v2);
+						window.location.reload();
+					});
 				});
 			}
 		}
@@ -196,20 +210,20 @@ export function Prefix() {
 				Guild: guildID,
 			},
 		}).then((v) => {
-			console.log('GET_PREFIX\n', v);
+			console.log('GET_PREFIXES\n', v);
 			// @ts-expect-error
-			doc.value = v.data.prefix;
+			doc.value = v.data.prefixes.join(', ');
 		});
 	};
 
 	return (
 		<div style={{ padding: '35px' }}>
 			<Container style={{ width: '800px' }}>
-				<Title>Update the command prefix</Title>
+				<Title>Update the command prefixes</Title>
 				<form>
 					<div>
 						<label htmlFor='prefix' style={{ fontSize: '20px' }}>
-							Current prefix
+							Current prefixes separated by a command and space
 						</label>
 					</div>
 					<InputField id='newprefix' style={{ margin: '10px 0px' }} />
