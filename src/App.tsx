@@ -11,7 +11,7 @@ import { Menu } from './pages/Menu';
 import { User, CacheUser, CacheGuild, CacheAdditional } from './pages/user';
 
 import { AddCC, DeleteCC, EditCC, ListCC } from './pages/cc';
-import { Category, Prefix, MemberRole } from './pages/guild';
+import { Category, Prefix, MemberRole, WelcomeChannel, AntiInvite } from './pages/guild';
 
 function App() {
 	if (window.location.host.split('.')[0] !== 'dashboard') return <div>Did you mean to go to https://dashboard.localhost:3000/ ?</div>;
@@ -39,6 +39,8 @@ function App() {
 
 				<Route path='/guild/prefix' element={<Prefix />} />
 				<Route path='/guild/memberrole' element={<MemberRole />} />
+				<Route path='/guild/welcomechannel' element={<WelcomeChannel />} />
+				<Route path='/guild/antiinvite' element={<AntiInvite />} />
 
 				<Route path='/guild/addcc' element={<AddCC />} />
 				<Route path='/guild/updatecc' element={<EditCC />} />
