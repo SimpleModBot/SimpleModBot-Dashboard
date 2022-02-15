@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import useWindowDimensions from '../utils/tools/windowDimensions';
 
 export const Appbar = () => {
 	const guildID = localStorage.getItem('guild-id');
@@ -9,6 +10,10 @@ export const Appbar = () => {
 	const user = localStorage.getItem('user-info');
 	if (!guilds || !user) return <Link to='/user'>You are missing either the user cache or the guild cache. Please refresh it to view the website properly.</Link>;
 	const cuser = JSON.parse(user);
+
+	const { height, width } = useWindowDimensions();
+	const why = width / 4;
+	console.log(`${width} ${why}`);
 
 	return (
 		<div
@@ -40,7 +45,7 @@ export const Appbar = () => {
 				Configuring {cguild.name}
 			</Link>
 
-			<Link to='/' style={{ position: 'relative', left: '10px', padding: '1px 0px' }}>
+			<Link to='/' style={{ marginLeft: `${why}px`, padding: '1px 0px' }}>
 				Home
 			</Link>
 
