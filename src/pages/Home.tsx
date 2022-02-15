@@ -1,5 +1,6 @@
-import { FaDiscord, FaQuestionCircle, FaArrowUp } from 'react-icons/fa';
+import { FaDiscord, FaQuestionCircle } from 'react-icons/fa';
 import { HomeButton } from '../utils/styles/index';
+import Particles from 'react-tsparticles';
 import '../utils/css/home.css';
 
 export function Home() {
@@ -67,6 +68,7 @@ export function Home() {
 			>
 				<h1>SimpleModBot Dashboard</h1>
 			</div>
+
 			<div style={{ cursor: 'pointer' }}>
 				<HomeButton
 					onClick={() => {

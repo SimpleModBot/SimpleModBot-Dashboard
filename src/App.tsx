@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { Appbar } from './components/Appbar';
+import { Particle } from './components/Particle';
 import { Userbar } from './components/UserBar';
 import { FourOhFour, About } from './pages/other';
 
@@ -20,7 +21,7 @@ function App() {
 		<React.StrictMode>
 			<Routes>
 				<Route path='/guild/*' element={<Appbar />} />
-				<Route path='/' element={<Userbar />} />
+				<Route path='/' element={<div><Particle /><Userbar /></div>} />
 				<Route path='/menu' element={<Userbar />} />
 				<Route path='/user/cache/*' element={<Userbar />} />
 			</Routes>
