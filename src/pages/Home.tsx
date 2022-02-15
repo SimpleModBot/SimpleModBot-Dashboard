@@ -1,6 +1,5 @@
 import { FaDiscord, FaQuestionCircle } from 'react-icons/fa';
 import { HomeButton } from '../utils/styles/index';
-import Particles from 'react-tsparticles';
 import '../utils/css/home.css';
 
 export function Home() {
@@ -88,17 +87,31 @@ export function Home() {
 					<FaQuestionCircle size={45} />
 					<p style={{ fontSize: '20px' }}>Support Server</p>
 				</HomeButton>
+				<HomeButton
+					id='particles'
+					onClick={() => {
+						// @ts-ignore
+						document.getElementById('tsparticles').style.display = 'none';
+						// @ts-ignore
+						document.getElementById('particles').style.display = 'none';
+					}}
+				>
+					<p style={{ fontSize: '20px' }}>Disable particles</p>
+				</HomeButton>
 			</div>
 
 			<div
 				style={{
 					display: 'flex',
-					width: '175px',
+					width: '15%',
 					justifyContent: 'space-between',
 				}}
 			>
 				<a href='/about' className='a'>
 					About
+				</a>
+				<a href='/docs' className='a'>
+					Documentation
 				</a>
 				<a href='/contact' className='a'>
 					Contact

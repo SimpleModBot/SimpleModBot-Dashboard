@@ -16,7 +16,7 @@ export function Particle() {
 							color: '#454545',
 							distance: 125,
 							enable: true,
-							opacity: 0.3,
+							opacity: 0.75,
 							width: 1.25,
 						},
 						move: {
@@ -29,7 +29,7 @@ export function Particle() {
 								enable: true,
 								area: 800,
 							},
-							value: 100,
+							value: 80,
 						},
 						opacity: {
 							value: 0.5,

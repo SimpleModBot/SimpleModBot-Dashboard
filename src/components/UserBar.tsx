@@ -1,14 +1,22 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import useWindowDimensions from '../utils/tools/windowDimensions';
 
 export const Userbar = () => {
 	const user = localStorage.getItem('user-info');
 	if (!user) return <Link to='/user'>You are missing the user cache. Please login and load the cache in user settings to view the site properly</Link>;
 	const cuser = JSON.parse(user);
 
-	const { height, width } = useWindowDimensions();
-	const why = width / 4;
-	console.log(`${width} ${why}`);
+	function showViewport() {
+		var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+		return { width, height };
+	}
+
+	let width = showViewport().width / 2 - 40;
+
+	if (document.readyState === 'complete') {
+		window.location.reload();
+	}
 
 	return (
 		<div
@@ -26,7 +34,7 @@ export const Userbar = () => {
 				fontWeight: 'normal',
 			}}
 		>
-			<Link to='/' style={{ marginLeft: `${why}px`, padding: '1px 0px' }}>
+			<Link to='/' style={{ position: 'relative', left: `${width}px`, padding: '1px 0px' }}>
 				Home
 			</Link>
 

@@ -1,5 +1,5 @@
 import { CategoryContainer, Container, Flex, Grid, TextButton, Title, Button, InputField } from '../utils/styles';
-import { IoSettingsOutline, IoChatboxOutline } from 'react-icons/io5';
+import { IoSettingsOutline, IoChatboxOutline, IoHandLeftSharp } from 'react-icons/io5';
 import axios from 'axios';
 
 export function Category() {

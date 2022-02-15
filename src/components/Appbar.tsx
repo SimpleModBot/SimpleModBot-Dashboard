@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import useWindowDimensions from '../utils/tools/windowDimensions';
 
 export const Appbar = () => {
 	const guildID = localStorage.getItem('guild-id');
@@ -11,9 +10,25 @@ export const Appbar = () => {
 	if (!guilds || !user) return <Link to='/user'>You are missing either the user cache or the guild cache. Please refresh it to view the website properly.</Link>;
 	const cuser = JSON.parse(user);
 
-	const { height, width } = useWindowDimensions();
-	const why = width / 4;
-	console.log(`${width} ${why}`);
+	function showViewport() {
+		var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+		return { width, height };
+	}
+
+	if (document.readyState === 'complete') {
+		window.location.reload();
+	}
+
+	window.onload = () => {
+		const home = document.getElementById('home');
+		let aa = document.getElementById('1');
+		if (!home || !aa) return;
+
+		const a = aa.clientWidth;
+		let width = showViewport().width / 2 - 40 - 45 - a;
+		home.style.left = `${width}px`;
+	};
 
 	return (
 		<div
@@ -41,11 +56,11 @@ export const Appbar = () => {
 				src={`https://cdn.discordapp.com/icons/${cguild.id}/${cguild.icon}.webp?size=128`}
 				alt='guild-icon'
 			></img>
-			<Link to='/menu' style={{ fontSize: '20px', padding: '1px 0px' }}>
+			<Link to='/menu' id='1' style={{ fontSize: '20px', padding: '1px 0px' }}>
 				Configuring {cguild.name}
 			</Link>
 
-			<Link to='/' style={{ marginLeft: `${why}px`, padding: '1px 0px' }}>
+			<Link to='/' id='home' style={{ position: 'relative', left: `0px`, padding: '1px 0px' }}>
 				Home
 			</Link>
 
