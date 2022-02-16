@@ -16,19 +16,15 @@ export const Appbar = () => {
 		return { width, height };
 	}
 
-	if (document.readyState === 'complete') {
-		window.location.reload();
-	}
+		setInterval(() => {
+			const home = document.getElementById('home');
+			let aa = document.getElementById('1');
+			if (!home || !aa) return;
 
-	window.onload = () => {
-		const home = document.getElementById('home');
-		let aa = document.getElementById('1');
-		if (!home || !aa) return;
-
-		const a = aa.clientWidth;
-		let width = showViewport().width / 2 - 40 - 45 - a;
-		home.style.left = `${width}px`;
-	};
+			const a = aa.clientWidth;
+			let width = showViewport().width / 2 - 40 - 45 - a;
+			home.style.left = `${width}px`;
+		}, 1000);
 
 	return (
 		<div

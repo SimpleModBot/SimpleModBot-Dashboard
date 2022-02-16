@@ -172,30 +172,21 @@ export function Prefix() {
 					window.location.reload();
 				});
 			} else {
+				let prefixs = prefix.split(/,\s/g);
+
 				axios({
-					url: `http://localhost:${process.env.PORT || `3001`}/guild/get/`,
-					method: `put`,
+					url: `http://localhost:${process.env.PORT || `3001`}/guild/update/`,
+					method: `patch`,
 					data: {
 						Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,
 						Guild: guildID,
-					},
-				}).then((v1) => {
-					let prefixs = prefix.split(/,\s/g);
-
-					axios({
-						url: `http://localhost:${process.env.PORT || `3001`}/guild/update/`,
-						method: `patch`,
-						data: {
-							Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,
-							Guild: guildID,
-							new: {
-								prefixes: prefixs,
-							},
+						new: {
+							prefixes: prefixs,
 						},
-					}).then((v2) => {
-						console.log('SET_NEW_PREFIX\n', v2);
-						window.location.reload();
-					});
+					},
+				}).then((v2) => {
+					console.log('SET_NEW_PREFIX\n', v2);
+					window.location.reload();
 				});
 			}
 		}

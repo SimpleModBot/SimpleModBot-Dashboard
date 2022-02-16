@@ -13,10 +13,13 @@ export const Userbar = () => {
 	}
 
 	let width = showViewport().width / 2 - 40;
+	setInterval(() => {
+		const home = document.getElementById('home');
+		if (!home) return;
 
-	if (document.readyState === 'complete') {
-		window.location.reload();
-	}
+		let width = showViewport().width / 2 - 40;
+		home.style.left = `${width}px`;
+	}, 1000);
 
 	return (
 		<div
@@ -34,7 +37,7 @@ export const Userbar = () => {
 				fontWeight: 'normal',
 			}}
 		>
-			<Link to='/' style={{ position: 'relative', left: `${width}px`, padding: '1px 0px' }}>
+			<Link to='/' id='home' style={{ position: 'relative', left: `${width}px`, padding: '1px 0px' }}>
 				Home
 			</Link>
 
