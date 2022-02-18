@@ -15,8 +15,6 @@ import { AddCC, DeleteCC, EditCC, ListCC } from './pages/cc';
 import { Category, Prefix, MemberRole, WelcomeChannel, AntiInvite } from './pages/guild';
 
 function App() {
-	if (window.location.host.split('.')[0] !== 'dashboard') return <div>Did you mean to go to https://dashboard.localhost:3000/ ?</div>;
-
 	return (
 		<React.StrictMode>
 			<Routes>
