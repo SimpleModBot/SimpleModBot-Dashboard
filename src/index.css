@@ -3,7 +3,7 @@
 body {
   margin: 0;
   color: whitesmoke;
-  background-color: #2a3344;
+  background-color: #1a202b;
   opacity: 0.9;
   height: 100%;
   font-family: "PT Sans", sans-serif;
@@ -21,10 +21,23 @@ a {
 }
 
 a:visited {
-  color: #5757e7
+  color: whitesmoke;
 }
 
 a:hover {
   transition-duration: 250ms;
   text-decoration: underline;
+}
+
+/* Highlight text */
+@keyframes id-target-highlight {
+  0% { background-color: rgba(255,255,255,0.8); }
+  100% { background-color: rgba(255,255,255,0); }
+}
+
+:target {
+  animation-name: id-target-highlight;
+  animation-iteration-count: 1;
+  animation-duration: 1000ms;
+  scroll-behavior: smooth;
 }

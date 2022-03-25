@@ -35,6 +35,7 @@ function getRandom404Message() {
 		'The requested page does not exist or is not implemented.',
 		'Makefile > CMake',
 		'Why does DEATH\'s keyboard scream at me??', // seriously wtf
+		"Stanford47 still thinks that C++ is better than TS or JS. (can you stop removing this one pls :p)"
 	];
 
 	return messages[~~(Math.random() * messages.length)];

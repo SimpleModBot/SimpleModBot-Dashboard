@@ -1,2 +1,3 @@
 # SimpleModBot Dashboard
-I will update this later.
+
+## Someone should add something here!!! -@Stanford47
