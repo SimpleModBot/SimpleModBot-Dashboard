@@ -81,7 +81,7 @@ export function Home() {
 				</HomeButton>
 				<HomeButton
 					onClick={() => {
-						window.location.href = 'https://discord.gg/49KeKwXc8g';
+						window.open('https://discord.gg/49KeKwXc8g', '_blank');
 					}}
 				>
 					<FaQuestionCircle size={45} />

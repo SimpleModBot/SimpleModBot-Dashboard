@@ -52,15 +52,15 @@ export const Appbar = () => {
 				src={`https://cdn.discordapp.com/icons/${cguild.id}/${cguild.icon}.webp?size=128`}
 				alt='guild-icon'
 			></img>
-			<Link to='/menu' id='1' style={{ fontSize: '20px', padding: '1px 0px' }}>
+			<Link to='/menu' id='1' style={{ fontSize: '17px', paddingLeft: '15px', textAlign: 'right'}}>
 				Configuring {cguild.name}
 			</Link>
 
-			<Link to='/' id='home' style={{ position: 'relative', left: `0px`, padding: '1px 0px' }}>
+			<Link to='/' id='home' style={{ position: 'relative', justifySelf: 'center', padding: '1px 0px',}}>
 				Home
 			</Link>
 
-			<Link to='/user/' style={{ fontSize: '20px', marginLeft: 'auto', padding: '1px 0px' }}>
+			<Link to='/user/' style={{ fontSize: '17px', marginLeft: 'auto', paddingRight: '15px', textAlign: 'left' }}>
 				{cuser.username}
 			</Link>
 			<img
@@ -72,7 +72,8 @@ export const Appbar = () => {
 					justifySelf: 'right',
 				}}
 				src={`https://cdn.discordapp.com/avatars/${cuser.id}/${cuser.avatar}.png?size=128`}
-				alt='user-icon'
+				alt='????'
+				
 			></img>
 		</div>
 	);

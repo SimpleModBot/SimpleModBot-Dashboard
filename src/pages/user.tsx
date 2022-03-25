@@ -233,9 +233,16 @@ export function CacheAdditional() {
 						>
 							Log out
 						</TextButton>
+						<TextButton>
+							Disable Particles
+						</TextButton>
 					</Grid>
 				</CategoryContainer>
 			</Container>
+
+			<div>
+				<a href='/'>Home</a>
+			</div>
 		</div>
 	);
 }

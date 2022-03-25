@@ -8,6 +8,7 @@ import { FourOhFour, About } from './pages/other';
 
 import { Home } from './pages/Home';
 import { Menu } from './pages/Menu';
+import { Docs } from './pages/Docs';
 
 import { User, CacheUser, CacheGuild, CacheAdditional } from './pages/user';
 
@@ -28,6 +29,7 @@ function App() {
 				<Route path='/*' element={<FourOhFour />} />
 				<Route path='/menu' element={<Menu />} />
 				<Route path='/about' element={<About />} />
+				<Route path="/docs" element={<Docs />} />
 
 				<Route path='/user' element={<User />} />
 				<Route path='/user/cache/user' element={<CacheUser />} />
@@ -45,7 +47,9 @@ function App() {
 				<Route path='/guild/updatecc' element={<EditCC />} />
 				<Route path='/guild/delcc' element={<DeleteCC />} />
 				<Route path='/guild/listcc' element={<ListCC />} />
+				
 			</Routes>
+			
 		</React.StrictMode>
 	);
 }

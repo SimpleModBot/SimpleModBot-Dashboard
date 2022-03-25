@@ -41,7 +41,7 @@ export const Userbar = () => {
 				Home
 			</Link>
 
-			<Link to='/user/' style={{ fontSize: '20px', marginLeft: 'auto', padding: '1px 0px' }}>
+			<Link to='/user/' style={{ fontSize: '17px', marginLeft: 'auto', paddingRight: '15px', textAlign: 'left' }}>
 				{cuser.username}
 			</Link>
 			<img
