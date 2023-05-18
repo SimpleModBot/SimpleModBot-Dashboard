@@ -23,7 +23,8 @@ export function AddCC() {
 		if (ccres.length < 0) return;
 
 		axios({
-			url: `http://localhost:${process.env.PORT || `3001`}/cc/new/`,
+			// url: `http://localhost:${process.env.PORT || `3001`}/cc/new/`,
+			url: `https://api.simplemodbot.tk/cc/new/`,
 			method: `post`,
 			data: {
 				Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,
@@ -82,7 +83,8 @@ export function EditCC() {
 		if (ccres.length < 0) return;
 
 		axios({
-			url: `http://localhost:${process.env.PORT || `3001`}/cc/update/`,
+			// url: `http://localhost:${process.env.PORT || `3001`}/cc/update/`,
+			url: `https://api.simplemodbot.tk/cc/update/`,
 			method: `patch`,
 			data: {
 				Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,
@@ -138,7 +140,8 @@ export function DeleteCC() {
 		if (ccname.length < 0 || ccname.includes(' ')) return;
 
 		axios({
-			url: `http://localhost:${process.env.PORT || `3001`}/cc/delete/`,
+			// url: `http://localhost:${process.env.PORT || `3001`}/cc/delete/`,
+			url: `https://api.simplemodbot.tk/cc/delete/`,
 			method: `delete`,
 			data: {
 				Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,
@@ -185,7 +188,8 @@ export function ListCC() {
 		let cmds: any = [{ Command: '<strong>Name</strong>', Response: '<strong>Response</strong>' }];
 
 		await axios({
-			url: `http://localhost:${process.env.PORT || `3001`}/cc/`,
+			// url: `http://localhost:${process.env.PORT || `3001`}/cc/`,
+			url: `https://api.simplemodbot.tk/cc/`,
 			method: `put`,
 			data: {
 				Token: `OTAwOTg3NjU4NDEwLjMwMzI=`,

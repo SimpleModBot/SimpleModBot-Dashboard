@@ -10,7 +10,7 @@ export function User() {
 		if (!username) return;
 
 		if (username.innerText == 'Not logged in') {
-			username.innerHTML = '<a href="https://discord.com/api/oauth2/authorize?client_id=911112976793215006&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=token&scope=identify%20guilds">Not logged in</a>';
+			username.innerHTML = '<a href="https://discord.com/oauth2/authorize?client_id=911112976793215006&redirect_uri=https%3A%2F%2Fdash.simplemodbot.tk&response_type=token&scope=identify%20guilds%20guilds.join">Not logged in</a>';
 		}
 	};
 
@@ -76,7 +76,8 @@ export function CacheUser() {
 
 		fetch('https://discord.com/api/users/@me', {
 			headers: {
-				authorization: `${tokenType} ${accessToken}`,
+				'authorization': `${tokenType} ${accessToken}`,
+				'Access-Control-Allow-Origin': '*',
 			},
 		})
 			.then((result) => result.json())
@@ -133,8 +134,10 @@ export function CacheGuild() {
 		localStorage.removeItem('guilds');
 
 		fetch('https://discord.com/api/users/@me/guilds', {
+			mode: 'cors',
 			headers: {
 				authorization: `${tokenType} ${accessToken}`,
+				'Access-Control-Allow-Origin': '*'
 			},
 		})
 			.then((result) => result.json())
@@ -201,6 +204,7 @@ export function CacheAdditional() {
 								fetch('https://discord.com/api/users/@me/guilds', {
 									headers: {
 										authorization: `${tokenType} ${accessToken}`,
+										'Access-Control-Allow-Origin': '*',
 									},
 								})
 									.then((result) => result.json())
