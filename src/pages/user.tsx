@@ -75,9 +75,9 @@ export function CacheUser() {
 		localStorage.removeItem('guild-id');
 
 		fetch('https://discord.com/api/users/@me', {
+			mode: 'no-cors',
 			headers: {
 				'authorization': `${tokenType} ${accessToken}`,
-				'Access-Control-Allow-Origin': '*',
 			},
 		})
 			.then((result) => result.json())
@@ -134,10 +134,9 @@ export function CacheGuild() {
 		localStorage.removeItem('guilds');
 
 		fetch('https://discord.com/api/users/@me/guilds', {
-			mode: 'cors',
+			mode: 'no-cors',
 			headers: {
 				authorization: `${tokenType} ${accessToken}`,
-				'Access-Control-Allow-Origin': '*'
 			},
 		})
 			.then((result) => result.json())
@@ -202,9 +201,9 @@ export function CacheAdditional() {
 						<TextButton
 							onClick={() => {
 								fetch('https://discord.com/api/users/@me/guilds', {
+									mode: 'no-cors',
 									headers: {
 										authorization: `${tokenType} ${accessToken}`,
-										'Access-Control-Allow-Origin': '*',
 									},
 								})
 									.then((result) => result.json())
