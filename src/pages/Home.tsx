@@ -72,7 +72,7 @@ export function Home() {
 				<HomeButton
 					onClick={() => {
 						if (localStorage.getItem('oauth-state') === 'success') window.location.href = '/menu';
-						else window.location.href = 'https://discord.com/oauth2/authorize?client_id=911112976793215006&redirect_uri=https%3A%2F%2Fdash.simplemodbot.tk&response_type=token&scope=identify%20guilds%20guilds.join';
+						else window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=911112976793215006&redirect_uri=https%3A%2F%2Fdash.simplemodbot.tk&response_type=token&scope=identify%20guilds';
 					}}
 					id='login'
 				>
