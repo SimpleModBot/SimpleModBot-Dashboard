@@ -77,7 +77,7 @@ export function CacheUser() {
 		fetch('https://discord.com/api/users/@me', {
 			mode: 'no-cors',
 			headers: {
-				'authorization': `${tokenType} ${accessToken}`,
+				Authorization: `${tokenType} ${accessToken}`,
 			},
 		})
 			.then((result) => result.json())
@@ -136,7 +136,7 @@ export function CacheGuild() {
 		fetch('https://discord.com/api/users/@me/guilds', {
 			mode: 'no-cors',
 			headers: {
-				authorization: `${tokenType} ${accessToken}`,
+				Authorization: `${tokenType} ${accessToken}`,
 			},
 		})
 			.then((result) => result.json())
@@ -203,7 +203,7 @@ export function CacheAdditional() {
 								fetch('https://discord.com/api/users/@me/guilds', {
 									mode: 'no-cors',
 									headers: {
-										authorization: `${tokenType} ${accessToken}`,
+										Authorization: `${tokenType} ${accessToken}`,
 									},
 								})
 									.then((result) => result.json())
